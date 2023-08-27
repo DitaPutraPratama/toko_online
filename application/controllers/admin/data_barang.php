@@ -37,7 +37,11 @@ class Data_barang extends CI_Controller
 
 		if ($gambar = '') {
 		} else {
+			$new_name = time() . $FILES["gambar_barang"]['name'];
 			$config['upload_path'] = './upload';
+			$config['encrypt_name'] =true ;
+			$config['file_name'] = $new_name;
+			$config['max_size'] = 3024;
 			$config['allowed_types'] = 'jpg|jpeg|png|webp';
 
 			$this->load->library('upload', $config);
